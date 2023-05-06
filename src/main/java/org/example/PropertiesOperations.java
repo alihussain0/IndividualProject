@@ -7,7 +7,7 @@ import java.util.Properties;
 public class PropertiesOperations {
 
     //object of property file
-     Properties prop=new Properties();
+    Properties prop=new Properties();
 
     public String getPropertyFileData(String key) throws IOException {
         //load data first

@@ -1,7 +1,6 @@
 package org.example;
 
 import java.lang.*;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -42,10 +41,11 @@ public class CalculatorPage{
     WebElement gpuTypeDropBox;
     @FindBy(xpath="//md-select[@placeholder='Number of GPUs']")
     WebElement numberOfGpusDropBox;
-    @FindBy(xpath ="//md-option[@id='select_option_496']")
+    @FindBy(xpath ="//md-option[@id='select_option_497']")
     WebElement numberOfGpus;
     @FindBy(xpath="//md-option[@value='NVIDIA_TESLA_V100']")
     WebElement gpusType;
+
     @FindBy(xpath="//md-select[@placeholder='Local SSD']")
     WebElement localSsdDropBox;
     @FindBy(xpath="//div[normalize-space()='2x375 GB']")
@@ -70,7 +70,7 @@ public class CalculatorPage{
     @FindBy(xpath="//div[contains (text(),'Instance type: n1-standard-8')]")
     WebElement instanceData;
     @FindBy(xpath="//div[contains (text(),'Local SSD: 2x375 GiB')]")
-   WebElement ssdData;
+    WebElement ssdData;
     @FindBy(xpath="//b[contains(text(),'Total Estimated Cost:')]")
     WebElement amount;
 
@@ -80,12 +80,11 @@ public class CalculatorPage{
         driver.get(url);
 
     }
-    public void goToCloudCalculatorPage(String searchText) throws InterruptedException {
+    public void goToCloudCalculatorPage(String searchText) {
         searchLogo.click();
         googleSearch.click();
         googleSearch.sendKeys(searchText);
         googleSearch.sendKeys(Keys.ENTER);
-        TimeUnit.SECONDS.sleep(3);
         switchToCalculator.click();
     }
     public void NumberOfInstancesField(String NumberOfInstances) {
@@ -96,10 +95,10 @@ public class CalculatorPage{
     }
     public void ManageCookie() throws InterruptedException {
 
-            if (cookiesOkBtn.isDisplayed()) {
-                cookiesOkBtn.click();
-                Thread.sleep(1000);
-            }
+        if (cookiesOkBtn.isDisplayed()) {
+            cookiesOkBtn.click();
+            Thread.sleep(1000);
+        }
 
 
 
@@ -125,7 +124,7 @@ public class CalculatorPage{
     }
     public void selectNumberOfGpus() throws InterruptedException {
         numberOfGpusDropBox.click();
-        TimeUnit.SECONDS.sleep(2);
+        Thread.sleep(500);
         numberOfGpus.click();
     }
     public void selectLocalSsd() throws InterruptedException {
@@ -166,12 +165,12 @@ public class CalculatorPage{
         return instance;
     }
     public WebElement getSsdData(){
-       WebElement ssd=ssdData;
-         return ssd;
+        WebElement ssd=ssdData;
+        return ssd;
     }
     public WebElement getCost(){
         WebElement price=amount;
-                return price;
+        return price;
     }
 
 
