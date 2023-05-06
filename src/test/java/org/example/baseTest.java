@@ -44,12 +44,12 @@ public class baseTest {
         PasteBinPage1 = new PasteBinPage(driver);
 
     }
-    /*
+
 
     @AfterMethod(alwaysRun = true)
     public void closeDriver() {
         driver.quit();
     }
 
-     */
+    
 }
